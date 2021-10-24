@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
+private const val minPasswordLength: Int = 8
+
 class MainActivity : AppCompatActivity() {
     private var emailInput: TextInputEditText? = null
     private var passwordInput: TextInputEditText? = null
@@ -50,14 +52,19 @@ class MainActivity : AppCompatActivity() {
         } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput?.text.toString()).matches()) {
             emailInputLayout?.error = "Wrong format of email"
             validationResult = false
+        } else {
+            emailInputLayout?.error = null
         }
 
         if (passwordInput?.text.toString().isEmpty()) {
             passwordInputLayout?.error = "The field can not be empty!"
             validationResult = false
         } else if (passwordInput?.text.toString().length < 8) {
-            passwordInputLayout?.error = "Password must contain more than 8 characters"
+            passwordInputLayout?.error =
+                "Password must contain more than $minPasswordLength characters"
             validationResult = false
+        } else {
+            passwordInputLayout?.error = null
         }
 
         return validationResult

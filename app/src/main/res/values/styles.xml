@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ToolboxTitle" parent="@style/Base.TextAppearance.AppCompat.Title">
-        <item name="android:color">@color/white</item>
+    <style name="ToolbarTitle" parent="@style/Base.TextAppearance.AppCompat.Title">
         <item name="android:textSize">@dimen/default_text_size</item>
     </style>
 
